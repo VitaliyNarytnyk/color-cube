@@ -1,16 +1,10 @@
 {
   "hosting": {
-    "public": "dist/color-cube",
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "predeploy": [
-      "npm run start"
-    ],
-    "postdeploy": [
-      "fb deploy"
     ]
   }
 }

@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "kvremstroy": {
+    "colorCube": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/kvremstroy",
+            "outputPath": "dist/colorCube",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -86,10 +86,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "kvremstroy:build:production"
+              "browserTarget": "colorCube:build:production"
             },
             "development": {
-              "browserTarget": "kvremstroy:build:development"
+              "browserTarget": "colorCube:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -97,7 +97,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "kvremstroy:build"
+            "browserTarget": "colorCube:build"
           }
         },
         "test": {
@@ -121,5 +121,5 @@
       }
     }
   },
-  "defaultProject": "kvremstroy"
+  "defaultProject": "colorCube"
 }

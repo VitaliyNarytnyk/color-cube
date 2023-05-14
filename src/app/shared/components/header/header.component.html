@@ -1,0 +1,64 @@
+<header>
+	<div class="header__body">
+		<div class="header__column logo-header">
+			<div [routerLink]="['/']" class="header__logo">
+				<img src="../../../../assets/images/PRINT/logo01.svg" alt="" class="logo">
+				<span class="header__title"></span>
+			</div>
+		</div>
+		<div class="header__column menu-header">
+			<!--<nav class="menu-header__menu">-->
+			<nav class="menu-header__menu" [ngClass]="active ? 'active' : ''">
+				<ul class="menu-header__list">
+					<li>
+						<a [routerLink]="['/']" class="menu-header__link">
+							<span (click)="toggleActive()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+								Головна
+							</span>
+						</a>
+					</li>
+					<li>
+						<a [routerLink]="['/about']" class="menu-header__link">
+							<span (click)="toggleActive()" routerLinkActive="active">
+								Про нас
+							</span>
+						</a>
+					</li>
+					<li><a [routerLink]="['/services']" class="menu-header__link">
+							<span (click)="toggleActive()" routerLinkActive="active">
+								Послуги
+							</span>
+						</a>
+					</li>
+					<li>
+						<a [routerLink]="['/projects']" class="menu-header__link">
+							<span (click)="toggleActive()" routerLinkActive="active">
+								Проєкти
+							</span>
+						</a>
+					</li>
+					<li>
+						<a [routerLink]="['/contacts']" class="menu-header__link">
+							<span (click)="toggleActive()" routerLinkActive="active">
+								Контакти
+							</span>
+						</a>
+					</li>
+					<li class="menu-header__phones">
+            <p>+38 (093) 770 27 00</p>
+            <p>+38 (097) 525 02 02</p>
+            <p>+38 (098) 555 12 12</p>
+					</li>
+				</ul>
+			</nav>
+		</div>
+		<div class="hamburger">
+			<button class="hamburger hamburger--collapse" type="button" (click)="toggleCollapse()" (click)="toggleActive()"
+				[ngClass]="active ? 'is-active' : ''">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</button>
+		</div>
+	</div>
+</header>

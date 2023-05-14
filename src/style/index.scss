@@ -1,0 +1,573 @@
+@import "swiper/scss";
+@import "swiper/scss/navigation";
+@import "swiper/scss/pagination";
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
+@import "swiper/css/effect-cube";
+
+@import '~hamburgers/_sass/hamburgers/hamburgers.scss';
+
+// < ШРИФТЫ > ============================================= //
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap');
+// < ШРИФТЫ > ============================================= //
+
+// < МИКСИНЫ > ============================================= //
+@mixin anim($time, $delay) {
+  -webkit-transition: all $time ease $delay;
+  -moz-transition: all $time ease $delay;
+  -ms-transition: all $time ease $delay;
+  -o-transition: all $time ease $delay;
+  transition: all $time ease $delay;
+}
+
+@mixin anim_cubic($time, $delay) {
+  -webkit-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+  -moz-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+  -ms-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+  -o-transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+  transition: all $time cubic-bezier(0.68, -0.55, 0.265, 1.55) $delay;
+}
+
+@mixin animate($name, $time, $infinite, $type) {
+  -webkit-animation: $name $time + s $infinite $type;
+  -moz-animation: $name $time + s $infinite $type;
+  -o-animation: $name $time + s $infinite $type;
+  animation: $name $time + s $infinite $type;
+}
+
+@mixin rotate($deg) {
+  -moz-transform: rotate($deg);
+  -ms-transform: rotate($deg);
+  -webkit-transform: rotate($deg);
+  -o-transform: rotate($deg);
+  transform: rotate($deg);
+}
+
+@mixin scale($num) {
+  -moz-transform: scale($num);
+  -ms-transform: scale($num);
+  -webkit-transform: scale($num);
+  -o-transform: scale($num);
+  transform: scale($num);
+}
+
+@mixin skew($num) {
+  -webkit-transform: skewX($num);
+  -moz-transform: skewX($num);
+  -ms-transform: skewX($num);
+  -o-transform: skewX($num);
+  transform: skewX($num);
+}
+
+@mixin cnt($h) {
+  display: flex;
+  flex-direction: column;
+  height: $h;
+  text-align: center;
+  align-items: stretch;
+  justify-content: center;
+}
+
+@mixin tr($x, $y, $z) {
+  transform: translate3d($x, $y, $z);
+  -webkit-transform: translate3d($x, $y, $z);
+  -ms-transform: translate3d($x, $y, $z);
+  -o-transform: translate3d($x, $y, $z);
+  -moz-transform: translate3d($x, $y, $z);
+}
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  font-size: 0;
+}
+
+@mixin flexboxinline() {
+  display: -webkit-inline-flex;
+  display: -moz-inline-flex;
+  display: -ms-inline-flex;
+  display: -o-inline-flex;
+  display: inline-flex;
+}
+
+@mixin flexorder($val) {
+  -webkit-box-ordinal-group: $val;
+  -moz-box-ordinal-group: $val;
+  -ms-flex-order: $val;
+  -webkit-order: $val;
+  order: $val;
+}
+
+// < МИКСИНЫ > ============================================= //
+
+// < ПЕРЕМЕННЫЕ > ============================================= //
+$minwidth: 320px;
+$mw: 1190;
+$md1: 1202;
+$md2: 991.98px;
+$md3: 767.98px;
+$md4: 479.98px;
+// < ПЕРЕМЕННЫЕ > ============================================= //
+
+// < FORMS > ============================================= //
+
+input {
+  &.ng-invalid.ng-touched {
+    border-bottom: 2px solid rgb(149, 26, 26);
+  }
+
+  &.ng-valid.ng-touched {
+    border-bottom: 2px solid rgb(0, 71, 0);
+  }
+}
+
+.form-row {
+  display: flex;
+  margin: 0px -15px;
+}
+
+.form__column {
+  padding: 0px 15px;
+}
+
+.input {
+  outline: 0 !important;
+  border-radius: 0 !important;
+  width: 100%;
+  display: block;
+  padding: 0px 20px;
+  height: 30px;
+  font-size: 15px;
+  border-bottom: 1px solid #fff;
+
+  &.focus {}
+
+  &.err {}
+}
+
+textarea.input {
+  height: 110px;
+  resize: none;
+  padding: 0px 20px;
+}
+
+// < FORMS > ============================================= //
+
+// < NULL > ============================================= //
+
+a {}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+:active,
+:hover,
+:focus {
+  outline: 0;
+  outline-offset: 0;
+}
+
+input,
+textarea,
+select {
+  -webkit-appearance: none;
+  border: none;
+}
+
+// < NULL > ============================================= //
+
+// < ОСНОВНАЯ СЕТКА > ============================================= //
+
+.wrapper {
+  font-size: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+
+  &.loaded {}
+}
+
+.container {
+  max-width: $mw + px;
+  margin: 0 auto;
+  width: 100%;
+
+  @media (max-width: 1202px) {
+    max-width: 1110px;
+  }
+
+  @media (max-width: $md2) {
+    max-width: 930px;
+  }
+
+  @media (max-width: $md3) {
+    max-width: none;
+    padding: 0 10px;
+  }
+}
+
+// < ОСНОВНАЯ СЕТКА > ============================================= //
+
+// < СТИЛИ > ============================================= //
+
+.validation {
+  font-size: 13px;
+  color: rgb(149, 26, 26);
+}
+
+body {
+  color: #000;
+  background: #f5f5f5;
+  font-family: Raleway;
+
+  &.lock {
+    overflow: hidden;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  height: 48px;
+  padding: 0px 28px;
+  line-height: 42px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  border: 2px solid #000;
+  font-weight: 500;
+  position: relative;
+  margin: auto 0;
+
+  @media (max-width: 991.98px) {
+    font-size: 15px;
+  }
+
+  @media (max-width: 767.98px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 479.98px) {
+    font-size: 13px;
+    padding: 0 20px;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: scale(0);
+    transition: all 0.3s ease 0s;
+  }
+
+  &_w {
+    color: #fff;
+    border: 1px solid #fff;
+
+    &:after {
+      background-color: #fff;
+    }
+  }
+
+  &_b {
+    color: #000;
+    border: 1px solid #000;
+
+    &:after {
+      background-color: #000;
+    }
+  }
+
+  span {
+    transition: all 0.3s ease 0s;
+    position: relative;
+    z-index: 1;
+  }
+
+  &:hover {
+    &.btn_w {
+      color: #000;
+    }
+
+    &.btn_b {
+      color: #fff;
+    }
+
+    &:after {
+      transform: scale(1);
+    }
+  }
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 44px;
+  letter-spacing: normal;
+  color: #000;
+  position: relative;
+  padding: 0 0 30px 0;
+
+  &:after {
+    content: '';
+    width: 105px;
+    height: 2px;
+    background-color: #000;
+    position: absolute;
+    left: 50%;
+    margin: 0px 0px 0px -52.5px;
+    bottom: 0;
+  }
+}
+
+.title-gold {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 28px;
+  color: #a36023;
+}
+
+.small-title {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+// < СТИЛИ > ============================================= //
+
+// < SLIDER > ============================================= //
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 470px;
+  object-fit: cover;
+
+  @media (max-width: 1202px) {
+    height: 450px;
+  }
+
+  @media (max-width: 767.98px) {
+    height: 80vh;
+  }
+
+  @media (max-width: 479.98px) {
+    height: 60vh;
+  }
+}
+
+.ant-menu {
+  background: #f5f5f5;
+}
+
+.ant-menu-horizontal {
+  border-bottom: none;
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item:hover,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-selected {
+  color: #a26028;
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item:hover::after,
+.ant-menu-horizontal:not(.ant-menu-dark)>.ant-menu-item-selected::after {
+  border-bottom: 2px solid #a26028;
+}
+
+.ant-btn:hover {
+  color: #a26028;
+  border-color: #a26028;
+}
+
+.ant-btn:active {
+  color: #a26028;
+  border-color: #a26028;
+}
+
+//=============================================//
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  color: #000;
+  font-size: 28px;
+  cursor: pointer;
+
+  @media (max-width: 767.98px) {
+    font-size: 26px;
+  }
+
+  @media (max-width: 479.98px) {
+    font-size: 24px;
+  }
+}
+
+.swiper-slide {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 30px 60px;
+  background: #f5f5f5;
+
+  @media (max-width: 767.98px) {
+    flex-direction: column-reverse;
+    padding: 30px 40px;
+  }
+
+  p {
+    display: inline;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 0.7px;
+    margin: 0;
+
+    @media (max-width: 991.98px) {
+      font-size: 26px;
+    }
+
+
+    @media (max-width: 767.98px) {
+      font-size: 24px;
+    }
+
+    @media (max-width: 479.98px) {
+      font-size: 22px;
+    }
+
+    @media (max-width: 380px) {
+      font-size: 20px;
+    }
+  }
+}
+
+.title.ng-star-inserted {
+  max-width: 280px;
+  line-height: 28px;
+  flex: 0 0 25%;
+  padding: 0 0 0 20px;
+  margin: 0px 0px 10px 0px;
+
+  &:after {
+    content: none;
+  }
+
+  @media (max-width: 991.98px) {
+    line-height: 24px;
+    padding: 0;
+  }
+
+  @media (max-width: 767.98px) {
+    line-height: 20px;
+    max-width: 370px;
+    flex: 0 0 100%;
+    margin: 0px 0px 15px 0px;
+  }
+
+  @media (max-width: 479.98px) {
+    line-height: 18px;
+    margin: 0px 0px 10px 0px;
+  }
+
+  @media (max-width: 380px) {
+    line-height: 16px;
+  }
+}
+
+.img.ng-star-inserted {
+  flex: 0 0 75%;
+  padding: 0 0 0 20px;
+
+  @media (max-width: 767.98px) {
+    padding: 0;
+    flex: 0 0 100%;
+  }
+}
+
+// < SLIDER > ============================================= //
+
+.ant-collapse-header {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  line-height: 26px;
+}
+
+.ant-back-top {
+  z-index: 200;
+}
+
+.hover-block {
+  width: 100%;
+  height: 100%;
+  background-color: #131313;
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p {
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0.6px;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  &:hover {
+    opacity: 0.4;
+  }
+
+  @media (max-width: 767.98px) {
+    &:hover {
+      opacity: 0;
+    }
+  }
+}

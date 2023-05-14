@@ -1,0 +1,125 @@
+<nz-back-top></nz-back-top>
+<div class="contacts">
+	<div class="contacts__body">
+		<div class="contacts__column">
+			<div class="contacts-item">
+				<div class="contacts-item__title">Давайте обговоримо ваше замовлення</div>
+				<div class="contacts-item__text text-1">Заповніть форму або зателефонуйте нам для безкоштовної
+					консультації.</div>
+				<div class="contacts-item__text text-2"><span>Триторія роботи:</span> <br> Україна.</div>
+				<div class="contacts-item__text text-3"><span>Наша адреса:</span> <br> вул. вул. Велика Васильківська 13-А, Київ, 02222,
+					Україна.
+				</div>
+				<div class="contacts-item__email">
+					e-mail: <a href="mailto:color.cube@gmail.com">color.cube@gmail.com</a>
+				</div>
+				<div class="contacts-item__phone">
+					<p>+38 (093) 770 27 00</p>
+					<p>+38 (097) 525 02 02</p>
+					<p>+38 (098) 555 12 12</p>
+				</div>
+			</div>
+		</div>
+		<div class="contacts__column">
+			<div class="contacts-item">
+				<form action="#" class="contacts-item__form form-contacts" [formGroup]="form" (ngSubmit)="submit()">
+					<div class="form-contacts__body">
+						<div class="form-contacts__row">
+							<div class="form-contacts__column">
+								<div class="form-contacts__input">
+									<div class="form-contacts__label">Ім'я*</div>
+									<input autocomplete="off" type="text" class="input" formControlName="firstName" />
+									<div *ngIf="form.get('firstName')?.invalid && form.get('firstName')?.touched" class="validation">
+										<small *ngIf="form.get('firstName')?.errors.required">
+											Поле 'Ім'я' не може бути пустим.
+										</small>
+										<small *ngIf="form.get('firstName')?.errors.pattern">
+											Поле 'Ім'я' може складатися тільки з літер.
+										</small>
+										<small *ngIf="form.get('firstName')?.errors.minlength">
+											Довжина імені повинна бути не менше {{form.get('firstName')?.errors.minlength.requiredLength}}
+											літер.
+											Кількість літер зараз - {{form.get('firstName')?.errors.minlength.actualLength}}.
+										</small>
+									</div>
+								</div>
+							</div>
+							<div class="form-contacts__column">
+								<div class="form-contacts__input">
+									<div class="form-contacts__label">Прізвище</div>
+									<input autocomplete="off" type="text" class="input" formControlName="secondName" />
+									<div class="validation"></div>
+								</div>
+							</div>
+						</div>
+						<div class="form-contacts__row">
+							<div class="form-contacts__column">
+								<div class="form-contacts__input">
+									<div class="form-contacts__label">E-mail*</div>
+									<input autocomplete="off" type="text" class="input" formControlName="email" />
+									<div *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="validation">
+										<small *ngIf="form.get('email')?.errors.required">
+											Поле 'E-mail' не може бути пустим.
+										</small>
+										<small *ngIf="form.get('email')?.errors.email">
+											Будь-ласка, введіть коректний E-mail.
+										</small>
+									</div>
+								</div>
+							</div>
+							<div class="form-contacts__column">
+								<div class="form-contacts__input">
+									<div class="form-contacts__label">Телефон*</div>
+									<input [showMaskTyped]="true" mask="+00(000) 000 - 00 - 00" autocomplete="off" type="tel"
+										class="input" formControlName="phone" [dropSpecialCharacters]="false" />
+									<div *ngIf="form.get('phone')?.invalid && form.get('phone')?.touched" class="validation">
+										<small *ngIf="form.get('phone')?.errors.required">
+											Поле 'Телефон' не може бути пустим.
+										</small>
+										<small *ngIf="form.get('phone')?.errors.pattern">
+											Поле 'Телефон' може складатися тільки з цифр.
+										</small>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-contacts__input">
+							<div class="form-contacts__label">Текст повідомлення...</div>
+							<textarea autocomplete="off" class="input" formControlName="message"></textarea>
+							<div class="validation"></div>
+						</div>
+						<button class="form-contacts__btn btn btn_b" type="submit"><span>Відправити</span></button>
+					</div>
+				</form>
+				<div class="form-contacts-mob">
+					<div class="contacts-item__text text-3 mob"><span>Наша адреса:</span> <br> вул. Велика Васильківська 13-А, Київ,
+						0222,
+						Україна.
+					</div>
+					<div class="contacts-item__email email mob">
+						e-mail: <a href="mailto:color.cube@gmail.com">color.cube@gmail.com</a>
+					</div>
+					<div class="contacts-item__phone phone mob">
+            <p>+38 (093) 770 27 00</p>
+            <p>+38 (097) 525 02 02</p>
+            <p>+38 (098) 555 12 12</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="map">
+		<div class="contacts__map" id="map">
+			<iframe 
+				src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.0443230503784!2d30.51691217636845!3d50.44027507159022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4ceff47607dc9%3A0xea53e60012f37aa!2z0JHQvtC70YzRiNCw0Y8g0JLQsNGB0LjQu9GM0LrQvtCy0YHQutCw0Y8sIDEzLCDQmtC40LXQsiwgMDIwMDA!5e0!3m2!1sru!2sua!4v1683660611633!5m2!1sru!2sua"
+				width="600"
+				height="450"
+				style="border:0;"
+				allowfullscreen=""
+				loading="lazy"
+				referrerpolicy="no-referrer-when-downgrade"
+			>
+			</iframe>
+		</div>
+	</div>
+</div>

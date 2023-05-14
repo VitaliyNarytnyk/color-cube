@@ -1,0 +1,44 @@
+<nz-back-top></nz-back-top>
+<div class="services">
+	<div class="gallery">
+		<div class="gallery__body">
+			<div class="gallery__item">
+				<div class="gallery__title title">Наші послуги</div>
+				<div class="gallery__subtitle">Давайте втілимо ваші мрії в реальність!</div>
+			</div>
+			<div class="gallery__content">
+				<div class="gallery__row">
+					<div class="gallery__column column-item" *ngFor="let item of array1">
+						<div class="column-item__img">
+							<div [routerLink]="item.routerLink" class="hover-block"></div>
+							<img [src]="item.img" alt="" class="responsive">
+						</div>
+						<div class="column-item__text text-item">
+							<div class="text-item__title small-title" [innerHTML]="item.title"></div>
+							<div class="text-item__text">
+								{{item.text}}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="gallery__row">
+					<div class="gallery__column column-item" *ngFor="let item of array2">
+						<div class="column-item__img">
+							<div [routerLink]="item.routerLink" class="hover-block"></div>
+							<img [src]="item.img" alt="" class="responsive">
+						</div>
+						<div class="column-item__text text-item">
+							<div class="text-item__title small-title">{{item.title}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="order">
+		<div class="order__body">
+			<div class="order__title">Створимо будинок вашої мрії! <br> Розкажіть, яким він повинен бути.</div>
+			<a [routerLink]="['/contacts']" class="order__btn btn btn_w"><span>Замовити розрахунок</span></a>
+		</div>
+	</div>
+</div>

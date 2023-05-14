@@ -1,0 +1,89 @@
+<nz-back-top></nz-back-top>
+<div class="about">
+	<div class="about-company">
+		<div class="about-company__body">
+			<div class="about-company__item">
+				<div class="about-company__title title">Color Cube</div>
+				<div class="about-company__text">
+					Наша спеціалізована та прогресивна поліграфічна компанія - 
+					це сучасний менеджмент, новітні технології та інноваційний 
+					підхід до вирішення завдань. Ми пропонуємо широкий спектр послуг 
+					загального та спеціалізованого друку з відповідністю до всіх 
+					міжнародних стандартів якості. З нами ваші проекти будуть виконані 
+					з високою якістю та професіоналізмом.
+				</div>
+			</div>
+			<div class="about-company__img"></div>
+		</div>
+	</div>
+	<div class="how">
+		<div class="how__body">
+			<div class="container">
+				<div class="how__item">
+					<div class="how__title title">Як ми працюємо</div>
+					<div class="how__text">
+						Ми забезпечені матеріально-технічними ресурсами у вигляді сучасного та повністю обладнаного виробництва,
+						передовими технологіями та інструментами, а також висококваліфікованими фахівцями, що дозволяє нам виконувати
+						широкий спектр послуг у сфері поліграфії відповідно до найвищих стандартів якості.
+					</div>
+				</div>
+			</div>
+			<div class="how__content">
+				<div class="how__row">
+					<div class="how__column column-item" [class.rev]="item.id === 1" *ngFor="let item of array1">
+						<div class="column-item__img item-c">
+							<img [src]="item.img" alt="" class="responsive">
+						</div>
+						<div class="column-item__text text-item item-c">
+							<div class="text-item__title small-title" [innerHTML]="item.title"></div>
+						</div>
+					</div>
+				</div>
+				<div class="how__row">
+					<div class="how__column column-item rev-mob" [class.rev]="item.id === 0" *ngFor="let item of array2">
+						<div class="column-item__text text-item item-c">
+							<div class="text-item__title small-title">{{item.title}}</div>
+						</div>
+						<div class="column-item__img item-c">
+							<img [src]="item.img" alt="" class="responsive">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="quality">
+		<div class="container">
+			<div class="quality__body">
+				<div class="quality__title title">Наша місія</div>
+				<div class="quality__column">
+					<div class="quality__text">
+						«Ми створюємо сильну, спеціалізовану компанію, яка надає якісні послуги та прогресивні рішення в галузі поліграфії для клієнта
+						та його бізнесу. Розвиток кожного дня, кожну секунду та постійне впровадження новітніх технологій
+						направлених на вирішення кожного завдання. Створення компанії, якою можемо пишатися ми та наші діти!»
+					</div>
+				</div>
+				<div class="quality__column">
+					<div class="quality__subtitle small-title">
+						Стратегія досягнення
+					</div>
+
+					<ul class="quality__list">
+						<li>Постійне вдосконалення знань, навичок та професіоналізму спеціалістів компанії</li>
+						<li>Вивчення та впровадження у виробничу практику прикладних технологій в сфері поліграфії</li>
+						<li>Формування матеріально-технічної бази із сучасного високотехнологічного обладнання для поліграфічного виробництва</li>
+						<li>Впровадження ефективних систем менеджменту у поліграфічній компанії</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="order">
+		<div class="container">
+			<div class="order__body">
+				<div class="order__title">Перетвори свої ідеї на візуальний шедевр! Друкуй з нами.</div>
+				<a [routerLink]="['/contacts']" class="order__btn btn btn_w"><span>Замовити консультацію</span></a>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,61 @@
+<div class="projects">
+	<div class="our-projects">
+		<div class="our-projects__body">
+			<div class="our-projects__item">
+				<div class="our-projects__title title">Поліграфія</div>
+				<div class="our-projects__subtitle">Надаємо послуги друку різноманітної продукції від проектування до готового продукту.</div>
+				<nz-collapse nzAccordion>
+					<nz-collapse-panel (nzActiveChange)="onChangeActive($event)" [nzActive]="isActive"
+						[nzHeader]="'Перелік послуг:'">
+						<ul class="our-projects__list">
+							<li>Розробка дизайну</li>
+							<li>Друк на різноманітних матеріалах</li>
+							<li>Візитки</li>
+							<li>Листівки, Буклети</li>
+							<li>Плакати, Афіші</li>
+							<li>Брошури, Каталоги</li>
+							<li>Календарі</li>
+							<li>Бірки, Цінники</li>
+							<li>Бланки</li>
+							<li>Меню</li>
+							<li>Блокноти</li>
+							<li>Наліпки, Етикетки</li>
+							<li>Пластикові карти</li>
+						</ul>
+					</nz-collapse-panel>
+				</nz-collapse>
+			</div>
+			<div class="our-projects__content">
+				<nz-back-top></nz-back-top>
+				<div class="our-projects__row">
+					<div class="our-projects__column" *ngFor="let item of array1">
+						<div class="hover-block" (click)="navigateToItem(item.id)"></div>
+						<img [src]="item.img" alt="" class="responsive">
+					</div>
+				</div>
+				<div class="our-projects__row">
+					<div class="our-projects__column" *ngFor="let item of array2">
+						<div class="hover-block" (click)="navigateToItem(item.id)">
+						</div>
+						<img [src]="item.img" alt="" class="responsive">
+					</div>
+				</div>
+				<div class="our-projects__row">
+					<div class="our-projects__column" *ngFor="let item of array3">
+						<div class="hover-block" (click)="navigateToItem(item.id)">
+						</div>
+						<img [src]="item.img" alt="" class="responsive">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="order">
+		<div class="container">
+			<div class="order__body">
+				<div class="order__title">Наш друк допоможе тобі виділитись з тисячі інших. Перевір сам!</div>
+				<a [routerLink]="['/contacts']" class="order__btn btn btn_w"><span>Замовити консультацію</span></a>
+			</div>
+		</div>
+	</div>
+</div>

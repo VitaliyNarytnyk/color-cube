@@ -1,0 +1,11 @@
+<swiper [config]="config" class="mySwiper">
+  <ng-template *ngFor="let item of items" swiperSlide>
+    <i nz-icon nzType="close" nzTheme="outline" class="close-icon" (click)="goBack()"></i>
+    <div class="img">
+      <img [src]="item.img" alt="">
+    </div>
+    <div class="title">
+      <p>{{item.title}}</p>
+    </div>
+  </ng-template>
+</swiper>

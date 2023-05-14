@@ -1,0 +1,46 @@
+<div class="projects">
+	<div class="our-projects">
+		<div class="our-projects__body">
+			<div class="our-projects__item">
+				<div class="our-projects__title title">Широкоформатний друк</div>
+			</div>
+			<div class="our-projects__content">
+				<div class="our-projects__row">
+					<div class="our-projects__column" *ngFor="let item of array1">
+						<div class="hover-block" (click)="navigateToItem(item.id)"></div>
+						<img [src]="item.img" alt="" class="responsive">
+					</div>
+				</div>
+				<div class="our-projects__row">
+					<div class="our-projects__column" *ngFor="let item of array2">
+						<div class="hover-block" (click)="navigateToItem(item.id)">
+						</div>
+						<img [src]="item.img" alt="" class="responsive">
+					</div>
+				</div>
+				<div class="our-projects__row">
+					<div class="our-projects__column" *ngFor="let item of array3">
+						<div class="hover-block" (click)="navigateToItem(item.id)">
+						</div>
+						<img [src]="item.img" alt="" class="responsive">
+					</div>
+				</div>
+				<div class="our-projects__row">
+					<div class="our-projects__column" *ngFor="let item of array4">
+						<div class="hover-block" (click)="navigateToItem(item.id)">
+						</div>
+						<img [src]="item.img" alt="" class="responsive">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="order">
+		<div class="container">
+			<div class="order__body">
+				<div class="order__title">Зроби свій друк яскравим і професійним! Звертайся до нас!</div>
+				<a [routerLink]="['/contacts']" class="order__btn btn btn_w"><span>Замовити розрахунок</span></a>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,54 @@
+<nz-back-top></nz-back-top>
+<div class="projects">
+	<div class="our-projects">
+		<div class="our-projects__body">
+			<div class="our-projects__item">
+				<div class="our-projects__title title">Спеціалізовані будівельні послуги</div>
+				<nz-collapse nzAccordion>
+					<nz-collapse-panel (nzActiveChange)="onChangeActive($event)" [nzActive]="isActive"
+						[nzHeader]="'Перелік послуг:'">
+						<ul class="our-projects__list">
+							<li>Чашки</li>
+							<li>Ручки</li>
+							<li>Флешки</li>
+							<li>Запальнички</li>
+							<li>Павербанки</li>
+							<li>Футболки</li>
+							<li>Повітряні кульки</li>
+							<li>Підвіски</li>
+							<li>Пластикові вироби</li>
+						</ul>
+					</nz-collapse-panel>
+				</nz-collapse>
+			</div>
+			<div class="our-projects__content">
+				<div class="our-projects__row">
+					<div class="our-projects__column" *ngFor="let item of array1">
+						<div class="hover-block" (click)="navigateToItem(item.id)"></div>
+						<img [src]="item.img" alt="" class="responsive">
+					</div>
+				</div>
+				<div class="our-projects__row">
+					<div class="our-projects__column" *ngFor="let item of array2">
+						<div class="hover-block" (click)="navigateToItem(item.id)"></div>
+						<img [src]="item.img" alt="" class="responsive">
+					</div>
+				</div>
+				<div class="our-projects__row">
+					<div class="our-projects__column" *ngFor="let item of array3">
+						<div class="hover-block" (click)="navigateToItem(item.id)"></div>
+						<img [src]="item.img" alt="" class="responsive">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="order">
+		<div class="container">
+			<div class="order__body">
+				<div class="order__title">Наш друк допоможе тобі виділитись з тисячі інших. Перевір сам!</div>
+				<a [routerLink]="['/contacts']" class="order__btn btn btn_w"><span>Зробити замовлення</span></a>
+			</div>
+		</div>
+	</div>
+</div>

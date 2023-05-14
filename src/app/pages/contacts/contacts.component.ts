@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MainService } from '@app/core';
 
 @Component({
   selector: 'app-contacts',
@@ -9,7 +10,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ContactsComponent implements OnInit {
   form!: FormGroup
 
-  constructor() { }
+  constructor(
+    private mainService: MainService,
+  ) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -34,10 +37,12 @@ export class ContactsComponent implements OnInit {
 
   submit() {
     if (this.form.valid) {
-      console.log('Form value: ', this.form.value)
-
+      console.log(this.form.value);
+      this.mainService.sendForm(this.form.value)
+        .subscribe(() => {
+          window.open('https://mailthis.to/confirm', '_blank');
+        })
       this.form.reset()
     }
   }
-
 }

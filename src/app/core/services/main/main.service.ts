@@ -9,13 +9,13 @@ import { ItemsData } from '@app/core/interfaces';
   providedIn: 'root'
 })
 export class MainService {
-  //private api = 'https://mailthis.to/aybt'
+  private api = 'https://mailthis.to/colorCube'
 
   constructor(private http: HttpClient) { }
 
-  //sendForm(data: any): Observable<any> {
-  //  return this.http.post(`${this.api}`, data, { responseType: 'text' });
-  //}
+  sendForm(data: any): Observable<any> {
+    return this.http.post(`${this.api}`, data, { responseType: 'text' });
+  }
 
   getData(): Observable<ItemsData> {
     return of({

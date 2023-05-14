@@ -38,10 +38,10 @@ export class MainComponent implements OnInit {
   submit() {
     if (this.form.valid) {
       console.log(this.form.value);
-      //this.mainService.sendForm(this.form.value)
-      //  .subscribe(res => {
-      //    window.open('https://mailthis.to/confirm', '_blank');
-      //  })
+      this.mainService.sendForm(this.form.value)
+        .subscribe(() => {
+          window.open('https://mailthis.to/confirm', '_blank');
+        })
       this.form.reset()
     }
   }

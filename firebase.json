@@ -1,0 +1,16 @@
+{
+  "hosting": {
+    "public": "dist/ProjectName",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "predeploy": [
+      "npm run start"
+    ],
+    "postdeploy": [
+      "fb deploy"
+    ]
+  }
+}

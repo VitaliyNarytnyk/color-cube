@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "dist/colorCube",
     "ignore": [
       "firebase.json",
       "**/.*",
